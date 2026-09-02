@@ -84,37 +84,46 @@
 
 @keyframes marquee {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @keyframes ticker-wave {
   0%,
   100% {
-    transform: translateZ(-26px);
+    transform: translate3d(0, 0, -12px) scale(0.98);
+    filter: brightness(0.9);
   }
   50% {
-    transform: translateZ(22px);
+    transform: translate3d(0, 0, 12px) scale(1.02);
+    filter: brightness(1.1);
   }
 }
 
-/* 3D game-day ticker — perspective scene, per-word extrusion, and a
-   traveling Z-depth wave layered on top of the existing marquee scroll. */
+/* 3D game-day ticker — a single coordinated perspective plane (not
+   per-letter shadow extrusion): the whole strip sits tilted in real 3D
+   space via perspective + rotateX, and each phrase rides one smooth,
+   staggered translateZ wave so the row reads as one physical strip
+   traveling through depth. Text itself stays a crisp, flat, solid fill —
+   sharpness comes from real transforms, not stacked shadows. */
 .ticker3d-scene {
-  perspective: 1100px;
+  perspective: 1300px;
+  perspective-origin: 50% 35%;
 }
 
 .ticker3d-stage {
   transform-style: preserve-3d;
-  transition: transform 0.2s ease-out;
+  transition: transform 0.25s ease-out;
   will-change: transform;
+  backface-visibility: hidden;
 }
 
 .ticker3d-track {
   transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
 .ticker3d-word {
@@ -123,41 +132,39 @@
   align-items: baseline;
   gap: 0.75rem;
   transform-style: preserve-3d;
-  animation: ticker-wave 4s ease-in-out infinite;
-  will-change: transform;
+  backface-visibility: hidden;
+  animation: ticker-wave 6s ease-in-out infinite;
+  will-change: transform, filter;
 }
 
 .ticker3d-face {
   display: inline-block;
-  color: #eaf1ff;
-  text-shadow:
-    0 1px 0 #cdd9f0,
-    0 2px 0 #b9c8e8,
-    1px 3px 0 #33517f,
-    2px 4px 0 #234072,
-    3px 5px 0 #163156,
-    4px 6px 1px #0e2557,
-    5px 8px 10px rgba(4, 10, 26, 0.65);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-shadow: 0 2px 6px rgba(2, 6, 20, 0.55);
   transition:
-    text-shadow 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease;
+    transform 0.3s ease,
+    filter 0.3s ease;
   transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.ticker3d-face.is-white {
+  color: #ffffff;
+}
+
+.ticker3d-face.is-red {
+  color: var(--color-red-500);
 }
 
 .ticker3d-dot {
   display: inline-block;
-  color: var(--color-red-500);
-  font-size: 1.1em;
+  color: var(--color-red-400);
+  font-size: 0.85em;
   line-height: 1;
-  text-shadow:
-    0 1px 0 #8c0d1f,
-    0 2px 2px rgba(216, 20, 51, 0.6),
-    0 0 14px rgba(216, 20, 51, 0.55);
-  transform: translateZ(6px);
-  transition:
-    transform 0.3s ease,
-    text-shadow 0.3s ease;
+  text-shadow: 0 0 10px rgba(234, 47, 76, 0.6);
+  transform: translateZ(4px);
+  transition: transform 0.3s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -166,25 +173,12 @@
   }
 
   .ticker3d-word:hover .ticker3d-face {
-    transform: translateZ(34px);
-    color: #ffffff;
-    text-shadow:
-      0 1px 0 #dbe6fb,
-      0 2px 0 #c3d3ef,
-      1px 3px 0 #3f61a0,
-      2px 4px 0 #2c4d8a,
-      3px 5px 0 #1d3b6e,
-      4px 6px 1px #142c54,
-      5px 10px 16px rgba(4, 10, 26, 0.8),
-      0 0 22px rgba(255, 255, 255, 0.25);
+    transform: translateZ(30px) scale(1.08);
+    filter: brightness(1.2);
   }
 
   .ticker3d-word:hover .ticker3d-dot {
-    transform: translateZ(46px) scale(1.15);
-    text-shadow:
-      0 1px 0 #8c0d1f,
-      0 2px 2px rgba(216, 20, 51, 0.8),
-      0 0 22px rgba(234, 47, 76, 0.85);
+    transform: translateZ(38px) scale(1.2);
   }
 }
 

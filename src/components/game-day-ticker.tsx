@@ -2,18 +2,18 @@
 
 import * as React from "react";
 
-const words = [
-  "GAME DAY",
-  "COLD DRINKS",
-  "ANGUS BURGERS",
-  "JUMBO WINGS",
-  "GOOD COMPANY",
-  "THIRD LAKE, IL",
+const words: { text: string; color: "white" | "red" }[] = [
+  { text: "GAME DAY", color: "white" },
+  { text: "COLD DRINKS", color: "red" },
+  { text: "ANGUS BURGERS", color: "white" },
+  { text: "JUMBO WINGS", color: "red" },
+  { text: "GOOD COMPANY", color: "white" },
+  { text: "THIRD LAKE, IL", color: "red" },
 ];
 
 const loop = [...words, ...words];
 
-const BASE_TILT_X = 8;
+const BASE_TILT_X = 12;
 
 export function GameDayTicker() {
   const stageRef = React.useRef<HTMLDivElement | null>(null);
@@ -34,8 +34,8 @@ export function GameDayTicker() {
     const rect = el.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width;
     const py = (e.clientY - rect.top) / rect.height;
-    const nextY = (px - 0.5) * 12;
-    const nextX = (0.5 - py) * 5;
+    const nextY = (px - 0.5) * 14;
+    const nextX = (0.5 - py) * 6;
 
     if (frameRef.current) cancelAnimationFrame(frameRef.current);
     frameRef.current = requestAnimationFrame(() => setTilt({ x: nextX, y: nextY }));
@@ -63,14 +63,18 @@ export function GameDayTicker() {
           <div className="ticker3d-track animate-marquee flex shrink-0 gap-12 whitespace-nowrap">
             {loop.map((word, i) => (
               <span
-                key={`${word}-${i}`}
+                key={`${word.text}-${i}`}
                 className="ticker3d-word"
                 style={{
-                  animationDelay: `${-(i % words.length) * (4 / words.length)}s`,
+                  animationDelay: `${-(i % words.length) * (5 / words.length)}s`,
                 }}
               >
-                <span className="ticker3d-face font-display text-2xl font-bold uppercase tracking-widest sm:text-3xl">
-                  {word}
+                <span
+                  className={`ticker3d-face font-display text-3xl font-bold uppercase tracking-wide sm:text-4xl ${
+                    word.color === "red" ? "is-red" : "is-white"
+                  }`}
+                >
+                  {word.text}
                 </span>
                 <span className="ticker3d-dot" aria-hidden>
                   &bull;
