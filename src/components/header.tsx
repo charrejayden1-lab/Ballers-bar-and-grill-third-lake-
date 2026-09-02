@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -24,25 +25,20 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled
-          ? "bg-white/90 shadow-[0_1px_0_0_var(--color-line)] backdrop-blur-md"
-          : "bg-white/70 backdrop-blur-md"
+        "sticky top-0 z-50 w-full border-b border-white/10 bg-navy-900 transition-shadow duration-300",
+        scrolled ? "shadow-[0_10px_30px_-12px_rgba(6,15,36,0.55)]" : "shadow-none"
       )}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" className="group flex items-center gap-2.5">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-b from-navy-600 to-navy-900 shadow-[0_4px_14px_-3px_rgba(10,26,61,0.55),inset_0_1px_0_rgba(255,255,255,0.2)] transition-transform duration-300 group-hover:-translate-y-0.5">
-            <span className="font-display text-lg font-black text-white">B</span>
-          </span>
-          <span className="font-display leading-none">
-            <span className="block text-lg font-bold uppercase tracking-wide text-navy-900">
-              Ballers
-            </span>
-            <span className="block text-[11px] font-semibold uppercase tracking-[0.28em] text-red-600">
-              Bar &amp; Grill
-            </span>
-          </span>
+        <Link href="/" className="group flex items-center">
+          <Image
+            src="/brand/ballers-logo.webp"
+            alt="Ballers Bar & Grill"
+            width={1417}
+            height={1110}
+            priority
+            className="h-14 w-auto transition-transform duration-300 group-hover:-translate-y-0.5 sm:h-16"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -54,15 +50,13 @@ export function Header() {
                 href={item.href}
                 className={cn(
                   "relative rounded-full px-4 py-2 font-display text-sm font-semibold uppercase tracking-wide transition-colors",
-                  active
-                    ? "text-red-600"
-                    : "text-navy-900/80 hover:text-red-600"
+                  active ? "text-red-400" : "text-white hover:text-red-400"
                 )}
               >
                 {item.label}
                 <span
                   className={cn(
-                    "absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-red-600 transition-transform duration-300",
+                    "absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-red-400 transition-transform duration-300",
                     active ? "scale-x-100" : "scale-x-0"
                   )}
                 />
