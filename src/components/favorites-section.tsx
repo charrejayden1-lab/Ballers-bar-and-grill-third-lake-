@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
+import { CoverflowCarousel } from "@/components/coverflow-carousel";
 
 export function FavoritesSection() {
   return (
@@ -18,6 +19,10 @@ export function FavoritesSection() {
             Swipe, drag, or click through a taste of what&rsquo;s cooking.
             Every dish below is on our full menu.
           </p>
+        </Reveal>
+
+        <Reveal delay={0.1} className="mt-12">
+          <CoverflowCarousel />
         </Reveal>
 
         <Reveal delay={0.15} className="mt-14 flex justify-center">
