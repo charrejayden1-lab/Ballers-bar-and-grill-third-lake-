@@ -109,7 +109,7 @@ export function Hero() {
             <dt className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-white/45">
               Kitchen
             </dt>
-            <dd className="mt-1 font-display text-lg font-bold uppercase text-white sm:text-xl">
+            <dd className="mt-1 font-display text-lg font-bold uppercase text-red-400 sm:text-xl">
               Burgers &amp; Wings
             </dd>
           </div>
@@ -117,7 +117,7 @@ export function Hero() {
             <dt className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-white/45">
               Atmosphere
             </dt>
-            <dd className="mt-1 font-display text-lg font-bold uppercase text-white sm:text-xl">
+            <dd className="mt-1 font-display text-lg font-bold uppercase text-red-400 sm:text-xl">
               Game Day, Every Day
             </dd>
           </div>
@@ -125,7 +125,7 @@ export function Hero() {
             <dt className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-white/45">
               Location
             </dt>
-            <dd className="mt-1 font-display text-lg font-bold uppercase text-white sm:text-xl">
+            <dd className="mt-1 font-display text-lg font-bold uppercase text-red-400 sm:text-xl">
               Third Lake, IL
             </dd>
           </div>

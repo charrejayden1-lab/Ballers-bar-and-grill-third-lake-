@@ -32,7 +32,7 @@ export function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link href="/" className="group flex items-center">
           <Image
-            src="/brand/ballers-logo.webp"
+            src="/brand/ballers-logo.png"
             alt="Ballers Bar & Grill"
             width={1417}
             height={1110}
