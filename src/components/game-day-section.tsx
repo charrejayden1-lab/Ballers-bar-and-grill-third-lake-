@@ -1,6 +1,7 @@
 import { Tv, Beer, Users, UtensilsCrossed } from "lucide-react";
 
 import { Reveal } from "@/components/reveal";
+import { GameDayTicker } from "@/components/game-day-ticker";
 
 const features = [
   {
@@ -25,34 +26,12 @@ const features = [
   },
 ];
 
-const ticker = [
-  "GAME DAY",
-  "COLD DRINKS",
-  "ANGUS BURGERS",
-  "JUMBO WINGS",
-  "GOOD COMPANY",
-  "THIRD LAKE, IL",
-];
-
 export function GameDaySection() {
   return (
     <section className="relative overflow-hidden bg-navy-950 py-20 text-white sm:py-28">
       <div className="scorelines pointer-events-none absolute inset-0 opacity-30" />
 
-      <div className="relative border-b border-white/10 pb-14">
-        <div className="flex select-none gap-10 overflow-hidden">
-          <div className="flex shrink-0 animate-marquee gap-10 whitespace-nowrap">
-            {[...ticker, ...ticker].map((word, i) => (
-              <span
-                key={`${word}-${i}`}
-                className="font-display text-2xl font-bold uppercase tracking-widest text-white/10 sm:text-3xl"
-              >
-                {word} <span className="text-red-500/30">&bull;</span>
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
+      <GameDayTicker />
 
       <div className="relative mx-auto max-w-6xl px-5 pt-16 sm:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">

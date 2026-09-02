@@ -91,6 +91,103 @@
   }
 }
 
+@keyframes ticker-wave {
+  0%,
+  100% {
+    transform: translateZ(-26px);
+  }
+  50% {
+    transform: translateZ(22px);
+  }
+}
+
+/* 3D game-day ticker — perspective scene, per-word extrusion, and a
+   traveling Z-depth wave layered on top of the existing marquee scroll. */
+.ticker3d-scene {
+  perspective: 1100px;
+}
+
+.ticker3d-stage {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+.ticker3d-track {
+  transform-style: preserve-3d;
+}
+
+.ticker3d-word {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  transform-style: preserve-3d;
+  animation: ticker-wave 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.ticker3d-face {
+  display: inline-block;
+  color: #eaf1ff;
+  text-shadow:
+    0 1px 0 #cdd9f0,
+    0 2px 0 #b9c8e8,
+    1px 3px 0 #33517f,
+    2px 4px 0 #234072,
+    3px 5px 0 #163156,
+    4px 6px 1px #0e2557,
+    5px 8px 10px rgba(4, 10, 26, 0.65);
+  transition:
+    text-shadow 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+  transform: translateZ(0);
+}
+
+.ticker3d-dot {
+  display: inline-block;
+  color: var(--color-red-500);
+  font-size: 1.1em;
+  line-height: 1;
+  text-shadow:
+    0 1px 0 #8c0d1f,
+    0 2px 2px rgba(216, 20, 51, 0.6),
+    0 0 14px rgba(216, 20, 51, 0.55);
+  transform: translateZ(6px);
+  transition:
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ticker3d-word:hover {
+    z-index: 1;
+  }
+
+  .ticker3d-word:hover .ticker3d-face {
+    transform: translateZ(34px);
+    color: #ffffff;
+    text-shadow:
+      0 1px 0 #dbe6fb,
+      0 2px 0 #c3d3ef,
+      1px 3px 0 #3f61a0,
+      2px 4px 0 #2c4d8a,
+      3px 5px 0 #1d3b6e,
+      4px 6px 1px #142c54,
+      5px 10px 16px rgba(4, 10, 26, 0.8),
+      0 0 22px rgba(255, 255, 255, 0.25);
+  }
+
+  .ticker3d-word:hover .ticker3d-dot {
+    transform: translateZ(46px) scale(1.15);
+    text-shadow:
+      0 1px 0 #8c0d1f,
+      0 2px 2px rgba(216, 20, 51, 0.8),
+      0 0 22px rgba(234, 47, 76, 0.85);
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
