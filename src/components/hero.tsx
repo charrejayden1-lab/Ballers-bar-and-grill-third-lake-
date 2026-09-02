@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import { Phone } from "lucide-react";
@@ -24,7 +25,22 @@ const item: Variants = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-navy-900 via-navy-950 to-navy-950 text-white">
+    <section className="relative overflow-hidden bg-navy-950 text-white">
+      <div className="absolute inset-0">
+        <Image
+          src="/hero/bar-interior.webp"
+          alt="Inside the Ballers Bar & Grill bar area"
+          fill
+          priority
+          sizes="100vw"
+          quality={85}
+          className="object-cover object-[center_40%]"
+        />
+      </div>
+      {/* Left-to-right readability gradient: strong behind the text on the
+          left, fading out toward the right so the photo shows through. */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy-950/92 via-navy-950/70 to-navy-950/25" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-navy-950/30" />
       <div className="scorelines pointer-events-none absolute inset-0 opacity-40" />
       <div
         className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-red-600/25 blur-[120px]"
@@ -39,7 +55,7 @@ export function Hero() {
         initial="hidden"
         animate="show"
         variants={container}
-        className="relative mx-auto flex max-w-6xl flex-col items-center px-5 pb-24 pt-20 text-center sm:px-8 sm:pb-28 sm:pt-24 lg:pt-28"
+        className="relative mx-auto flex max-w-6xl flex-col items-start px-5 pb-24 pt-20 text-left sm:px-8 sm:pb-28 sm:pt-24 lg:pt-28"
       >
         <motion.span
           variants={item}
@@ -67,7 +83,7 @@ export function Hero() {
 
         <motion.div
           variants={item}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
+          className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
         >
           <Button asChild variant="white" size="lg">
             <Link href="/menu">View Menu</Link>
