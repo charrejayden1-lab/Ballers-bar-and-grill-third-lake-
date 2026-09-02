@@ -2,17 +2,12 @@ import Link from "next/link";
 
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
-import { CoverflowCarousel } from "@/components/coverflow-carousel";
 
 export function FavoritesSection() {
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <Reveal delay={0.1}>
-          <CoverflowCarousel />
-        </Reveal>
-
-        <Reveal className="mx-auto mt-14 max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-red-600">
             From the Kitchen
           </p>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { Hero } from "@/components/hero";
+import { FoodCarouselSection } from "@/components/food-carousel-section";
 import { FavoritesSection } from "@/components/favorites-section";
 import { GameDaySection } from "@/components/game-day-section";
 import { CtaBanner } from "@/components/cta-banner";
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <FoodCarouselSection />
       <FavoritesSection />
       <GameDaySection />
       <CtaBanner />
