@@ -66,10 +66,10 @@ export function MenuAccordion() {
               type="button"
               onClick={() => jumpTo(cat.id)}
               className={cn(
-                "inline-flex items-center gap-2 rounded-full border px-4 py-2 font-display text-xs font-semibold uppercase tracking-wide transition-all duration-300",
+                "inline-flex items-center gap-2 rounded-full border px-4 py-2 font-display text-xs font-bold uppercase tracking-wide transition-all duration-300 active:scale-[0.96]",
                 active
                   ? "border-red-600 bg-red-600 text-white shadow-[0_6px_16px_-4px_rgba(184,16,43,0.55)]"
-                  : "border-navy-900/15 bg-white text-navy-900 hover:-translate-y-0.5 hover:border-navy-900/30"
+                  : "border-navy-400/40 bg-gradient-to-b from-navy-600 to-navy-900 text-white shadow-[0_10px_22px_-8px_rgba(4,10,30,0.7),inset_0_1px_0_rgba(255,255,255,0.16)] hover:-translate-y-0.5 hover:border-navy-300/55 hover:from-navy-500 hover:to-navy-800 hover:shadow-[0_14px_28px_-8px_rgba(4,10,30,0.8),inset_0_1px_0_rgba(255,255,255,0.22)]"
               )}
             >
               <Icon className="h-3.5 w-3.5" aria-hidden />

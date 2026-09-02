@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Phone } from "lucide-react";
 
@@ -32,19 +33,13 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-b from-red-500 to-red-700 shadow-[0_4px_14px_-3px_rgba(184,16,43,0.6)]">
-                <span className="font-display text-lg font-black text-white">B</span>
-              </span>
-              <span className="font-display leading-none">
-                <span className="block text-lg font-bold uppercase tracking-wide">
-                  Ballers
-                </span>
-                <span className="block text-[11px] font-semibold uppercase tracking-[0.28em] text-red-400">
-                  Bar &amp; Grill
-                </span>
-              </span>
-            </div>
+            <Image
+              src="/brand/ballers-logo.png"
+              alt="Ballers Bar & Grill"
+              width={1417}
+              height={1110}
+              className="h-16 w-auto sm:h-20"
+            />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/60">
               Third Lake&rsquo;s neighborhood destination for great food, cold
               drinks, friends, and the big game.
