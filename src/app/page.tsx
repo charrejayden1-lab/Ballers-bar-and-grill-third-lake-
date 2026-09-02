@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { Hero } from "@/components/hero";
-import { PhotoShowcase } from "@/components/photo-showcase";
+import { StatsStrip } from "@/components/stats-strip";
 import { FavoritesSection } from "@/components/favorites-section";
 import { GameDaySection } from "@/components/game-day-section";
 import { CtaBanner } from "@/components/cta-banner";
@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <PhotoShowcase />
+      <StatsStrip />
       <FavoritesSection />
       <GameDaySection />
       <CtaBanner />
