@@ -6,13 +6,17 @@ import { CoverflowCarousel } from "@/components/coverflow-carousel";
 
 export function FavoritesSection() {
   return (
-    <section className="relative overflow-hidden bg-navy-950 py-20 sm:py-28">
+    <section className="relative overflow-hidden bg-gradient-to-br from-navy-800 via-navy-700 to-navy-600 py-20 sm:py-28">
       <div
-        className="pointer-events-none absolute left-1/2 top-[58%] h-[560px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-600/25 blur-[150px]"
+        className="pointer-events-none absolute left-1/2 top-[58%] h-[600px] w-[950px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500/40 blur-[150px]"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-red-500/15 blur-[130px]"
+        className="pointer-events-none absolute -right-32 -top-32 h-[460px] w-[460px] rounded-full bg-red-500/25 blur-[130px]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -left-32 bottom-0 h-[420px] w-[420px] rounded-full bg-navy-500/35 blur-[130px]"
         aria-hidden
       />
 
