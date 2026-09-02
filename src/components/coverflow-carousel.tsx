@@ -169,9 +169,9 @@ export function CoverflowCarousel() {
           onClick={() => goTo(index - 1)}
           disabled={index === 0}
           aria-label="Previous favorite"
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-gradient-to-b from-navy-500 to-navy-700 text-white shadow-[0_8px_20px_-6px_rgba(36,86,179,0.6),inset_0_1px_0_rgba(255,255,255,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_10px_24px_-6px_rgba(36,86,179,0.75),inset_0_1px_0_rgba(255,255,255,0.28)] disabled:pointer-events-none disabled:opacity-30"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-gradient-to-b from-navy-500 to-navy-700 shadow-[0_8px_20px_-6px_rgba(36,86,179,0.6),inset_0_1px_0_rgba(255,255,255,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_10px_24px_-6px_rgba(36,86,179,0.75),inset_0_1px_0_rgba(255,255,255,0.28)] disabled:pointer-events-none disabled:opacity-30"
         >
-          <ChevronLeft className="h-5 w-5" aria-hidden />
+          <ChevronLeft className="h-5 w-5 text-red-400" aria-hidden />
         </button>
 
         <div className="flex items-center gap-2">
@@ -194,9 +194,9 @@ export function CoverflowCarousel() {
           onClick={() => goTo(index + 1)}
           disabled={index === items.length - 1}
           aria-label="Next favorite"
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-gradient-to-b from-navy-500 to-navy-700 text-white shadow-[0_8px_20px_-6px_rgba(36,86,179,0.6),inset_0_1px_0_rgba(255,255,255,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_10px_24px_-6px_rgba(36,86,179,0.75),inset_0_1px_0_rgba(255,255,255,0.28)] disabled:pointer-events-none disabled:opacity-30"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-gradient-to-b from-navy-500 to-navy-700 shadow-[0_8px_20px_-6px_rgba(36,86,179,0.6),inset_0_1px_0_rgba(255,255,255,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_10px_24px_-6px_rgba(36,86,179,0.75),inset_0_1px_0_rgba(255,255,255,0.28)] disabled:pointer-events-none disabled:opacity-30"
         >
-          <ChevronRight className="h-5 w-5" aria-hidden />
+          <ChevronRight className="h-5 w-5 text-red-400" aria-hidden />
         </button>
       </div>
     </div>
