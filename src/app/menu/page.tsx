@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
@@ -39,8 +40,31 @@ export default function MenuPage() {
         </div>
       </section>
 
-      <section className="bg-white py-16 sm:py-24">
-        <div className="mx-auto max-w-4xl px-5 sm:px-8">
+      <section className="relative overflow-hidden py-16 sm:py-24">
+        <div className="absolute inset-0">
+          <Image
+            src="/menu/bar-interior.webp"
+            alt="Inside the Ballers Bar & Grill bar area"
+            fill
+            sizes="100vw"
+            quality={85}
+            className="object-cover object-center"
+          />
+        </div>
+        {/* Layered Ballers blue/red wash: deep blue dominant, a red glow
+            from the opposite corner, and a soft dark scrim so the photo
+            stays visible while still giving the menu cards contrast. */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-navy-950/88 via-navy-900/55 to-navy-950/85" />
+        <div
+          className="pointer-events-none absolute -left-32 -top-24 h-[520px] w-[520px] rounded-full bg-navy-500/35 blur-[150px]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -bottom-24 -right-32 h-[560px] w-[560px] rounded-full bg-red-600/30 blur-[150px]"
+          aria-hidden
+        />
+
+        <div className="relative mx-auto max-w-4xl px-5 sm:px-8">
           <Reveal>
             <MenuAccordion />
           </Reveal>

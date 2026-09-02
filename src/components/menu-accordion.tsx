@@ -93,7 +93,7 @@ export function MenuAccordion() {
               key={cat.id}
               value={cat.id}
               id={`category-${cat.id}`}
-              className="scroll-mt-28"
+              className="scroll-mt-28 border-white/50 bg-white/92 shadow-[0_25px_60px_-25px_rgba(6,15,36,0.65)] backdrop-blur-md"
             >
               <AccordionTrigger>
                 <span className="flex items-center gap-3">
