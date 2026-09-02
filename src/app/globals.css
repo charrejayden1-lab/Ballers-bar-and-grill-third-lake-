@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand blue — dominant */
+  --color-navy-950: #060f24;
+  --color-navy-900: #0a1a3d;
+  --color-navy-800: #0e2557;
+  --color-navy-700: #133272;
+  --color-navy-600: #1a4291;
+  --color-navy-500: #2456b3;
+
+  /* Brand red — accent */
+  --color-red-700: #8c0d1f;
+  --color-red-600: #b8102b;
+  --color-red-500: #d81433;
+  --color-red-400: #ea2f4c;
+
+  /* Charcoal / ink */
+  --color-ink-900: #121316;
+  --color-ink-700: #2b2e34;
+  --color-ink-500: #5b5f68;
+
+  /* Canvas */
+  --color-white: #ffffff;
+  --color-mist: #f6f7fa;
+  --color-mist-200: #eef0f4;
+  --color-line: #e2e5eb;
+
+  --background: var(--color-white);
+  --foreground: var(--color-ink-900);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-navy-950: var(--color-navy-950);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-800: var(--color-navy-800);
+  --color-navy-700: var(--color-navy-700);
+  --color-navy-600: var(--color-navy-600);
+  --color-navy-500: var(--color-navy-500);
+
+  --color-red-700: var(--color-red-700);
+  --color-red-600: var(--color-red-600);
+  --color-red-500: var(--color-red-500);
+  --color-red-400: var(--color-red-400);
+
+  --color-ink-900: var(--color-ink-900);
+  --color-ink-700: var(--color-ink-700);
+  --color-ink-500: var(--color-ink-500);
+
+  --color-mist: var(--color-mist);
+  --color-mist-200: var(--color-mist-200);
+  --color-line: var(--color-line);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-oswald);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in: fade-in 0.6s ease-out both;
+  --animate-marquee: marquee 32s linear infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Scoreboard-style hairline texture used behind section headers */
+.scorelines {
+  background-image: repeating-linear-gradient(
+    115deg,
+    color-mix(in srgb, var(--color-white) 6%, transparent) 0px,
+    color-mix(in srgb, var(--color-white) 6%, transparent) 1px,
+    transparent 1px,
+    transparent 46px
+  );
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-red-500);
+  color: var(--color-white);
+}
