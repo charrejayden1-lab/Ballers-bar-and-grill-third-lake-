@@ -50,14 +50,23 @@ const AccordionContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
+  // forceMount keeps every panel's content in the DOM (and in the server-rendered
+  // HTML) at all times — required so the full menu is present for SEO and no-JS
+  // clients, not just whichever category happens to be open. Visibility and the
+  // expand/collapse motion are handled entirely with CSS via the grid-rows trick
+  // below instead of Radix's default mount/unmount + measured-height animation.
   <AccordionPrimitive.Content
     ref={ref}
+    forceMount
     className={cn(
-      "overflow-hidden data-[state=closed]:animate-[accordion-up_0.3s_ease] data-[state=open]:animate-[accordion-down_0.35s_ease]"
+      "grid transition-[grid-template-rows] duration-[350ms] ease-out",
+      "data-[state=open]:grid-rows-[1fr] data-[state=closed]:grid-rows-[0fr]"
     )}
     {...props}
   >
-    <div className={cn("px-5 pb-6 sm:px-7 sm:pb-8", className)}>{children}</div>
+    <div className="overflow-hidden">
+      <div className={cn("px-5 pb-6 sm:px-7 sm:pb-8", className)}>{children}</div>
+    </div>
   </AccordionPrimitive.Content>
 ));
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
