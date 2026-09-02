@@ -93,11 +93,11 @@ export function MenuAccordion() {
               key={cat.id}
               value={cat.id}
               id={`category-${cat.id}`}
-              className="scroll-mt-28 border-white/50 bg-white/92 shadow-[0_25px_60px_-25px_rgba(6,15,36,0.65)] backdrop-blur-md"
+              className="scroll-mt-28 border-white/15 bg-navy-950/45 shadow-[0_25px_60px_-20px_rgba(0,0,0,0.6)] backdrop-blur-xl"
             >
-              <AccordionTrigger>
+              <AccordionTrigger className="text-red-400 hover:text-red-300">
                 <span className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy-900/5 text-navy-900 group-hover:bg-red-600/10 group-hover:text-red-600">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-red-500/15 text-red-400 transition-colors group-hover:bg-red-500/25">
                     <Icon className="h-4 w-4" aria-hidden />
                   </span>
                   {cat.label}
@@ -105,30 +105,30 @@ export function MenuAccordion() {
               </AccordionTrigger>
               <AccordionContent>
                 {cat.intro && (
-                  <p className="mb-5 rounded-xl bg-mist px-4 py-3 text-sm text-ink-500">
+                  <p className="mb-5 rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white/80 backdrop-blur-sm">
                     {cat.intro}
                   </p>
                 )}
-                <ul className="flex flex-col divide-y divide-line">
+                <ul className="flex flex-col divide-y divide-white/15">
                   {cat.items.map((it) => (
                     <li key={it.name} className="py-4 first:pt-0 last:pb-0">
                       <div className="flex items-baseline justify-between gap-4">
-                        <span className="font-display text-base font-semibold text-navy-900 sm:text-lg">
+                        <span className="font-display text-base font-bold text-red-400 sm:text-lg">
                           {it.name}
                         </span>
                         {it.price && (
-                          <span className="shrink-0 font-display text-base font-bold text-red-600 sm:text-lg">
+                          <span className="shrink-0 font-display text-base font-bold text-red-400 sm:text-lg">
                             {it.price}
                           </span>
                         )}
                       </div>
                       {it.description && (
-                        <p className="mt-1.5 text-sm leading-relaxed text-ink-500">
+                        <p className="mt-1.5 text-sm leading-relaxed text-white/90">
                           {it.description}
                         </p>
                       )}
                       {it.note && (
-                        <p className="mt-1.5 text-xs font-medium italic text-navy-600">
+                        <p className="mt-1.5 text-xs font-medium italic text-white/70">
                           {it.note}
                         </p>
                       )}
@@ -136,15 +136,15 @@ export function MenuAccordion() {
                   ))}
                 </ul>
                 {cat.extras && (
-                  <div className="mt-6 rounded-xl border border-line bg-mist px-4 py-4">
-                    <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-navy-900/60">
+                  <div className="mt-6 rounded-xl border border-white/15 bg-white/10 px-4 py-4 backdrop-blur-sm">
+                    <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
                       {cat.extras.title}
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {cat.extras.items.map((e) => (
                         <span
                           key={e}
-                          className="rounded-full border border-line bg-white px-3 py-1 text-xs font-medium text-ink-700"
+                          className="rounded-full border border-white/25 bg-white/15 px-3 py-1 text-xs font-medium text-white"
                         >
                           {e}
                         </span>
