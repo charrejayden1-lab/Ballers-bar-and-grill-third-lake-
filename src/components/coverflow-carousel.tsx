@@ -1,17 +1,12 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { favorites, type Favorite } from "@/data/favorites";
-
-const THEME_BG: Record<Favorite["theme"], string> = {
-  navy: "bg-gradient-to-br from-navy-600 via-navy-700 to-navy-950",
-  red: "bg-gradient-to-br from-red-400 via-red-500 to-red-700",
-  split: "bg-gradient-to-br from-navy-800 via-navy-700 to-red-600",
-};
+import { favorites } from "@/data/favorites";
 
 const DRAG_THRESHOLD = 45;
 
@@ -112,7 +107,6 @@ export function CoverflowCarousel() {
           const rawOffset = idx - index - dragOffset;
           const clampedForFade = Math.min(Math.abs(rawOffset), 3.4);
           const isActive = Math.round(rawOffset) === 0 && !isDragging;
-          const Icon = item.icon;
 
           const translateX = rawOffset * spacing;
           const rotateY = clamp(-rawOffset * 34, -68, 68);
@@ -123,15 +117,14 @@ export function CoverflowCarousel() {
 
           return (
             <div
-              key={item.name}
+              key={item.src}
               onClick={() => {
                 if (idx !== index) goTo(idx);
               }}
               aria-hidden={!isActive}
               className={cn(
-                "absolute left-1/2 top-[6%] flex flex-col overflow-hidden rounded-[28px] border border-white/10",
+                "absolute left-1/2 top-[6%] flex flex-col overflow-hidden rounded-[28px] border border-white/10 bg-navy-950",
                 "shadow-[0_25px_60px_-15px_rgba(6,15,36,0.55)]",
-                THEME_BG[item.theme],
                 idx === index ? "cursor-default" : "cursor-pointer"
               )}
               style={{
@@ -147,21 +140,24 @@ export function CoverflowCarousel() {
                     : "transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.55s ease",
               }}
             >
-              <div className="flex flex-1 flex-col items-center justify-center gap-5 px-6 py-8 text-center">
-                <span className="rounded-full bg-white/15 px-3 py-1 font-display text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
-                  {item.tag}
-                </span>
-                <span className="flex h-24 w-24 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20 sm:h-28 sm:w-28">
-                  <Icon className="h-12 w-12 text-white sm:h-14 sm:w-14" strokeWidth={1.5} aria-hidden />
-                </span>
-                <h3 className="font-display text-lg font-bold uppercase leading-tight tracking-wide text-white sm:text-xl">
-                  {item.name}
-                </h3>
-                <span className="font-display text-2xl font-bold text-white/95">
-                  {item.price}
-                </span>
+              <div className="relative min-h-0 flex-[3]">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 640px) 60vw, 320px"
+                  quality={90}
+                  loading="eager"
+                  className="object-cover"
+                  draggable={false}
+                />
               </div>
-              <div className="h-1.5 w-full bg-gradient-to-r from-white/0 via-white/50 to-white/0" />
+              <div className="h-1 w-full shrink-0 bg-gradient-to-r from-red-600/0 via-red-500 to-red-600/0" />
+              <div className="flex min-h-0 flex-[1.3] items-center bg-navy-950 px-4 py-3 sm:px-5">
+                <p className="text-center text-xs leading-snug text-white/90 sm:text-sm">
+                  {item.description}
+                </p>
+              </div>
             </div>
           );
         })}
@@ -181,9 +177,9 @@ export function CoverflowCarousel() {
         <div className="flex items-center gap-2">
           {items.map((item, idx) => (
             <button
-              key={item.name}
+              key={item.src}
               type="button"
-              aria-label={`Go to ${item.name}`}
+              aria-label={`Go to dish ${idx + 1}`}
               onClick={() => goTo(idx)}
               className={cn(
                 "h-2 rounded-full transition-all duration-300",

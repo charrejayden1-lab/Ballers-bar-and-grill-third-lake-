@@ -1,69 +1,68 @@
-import type { LucideIcon } from "lucide-react";
-import { Beef, Drumstick, Sandwich, Soup, Shrimp, Salad, Pizza } from "lucide-react";
-
 export type Favorite = {
-  name: string;
-  price: string;
-  tag: string;
-  icon: LucideIcon;
-  theme: "navy" | "red" | "split";
+  src: string;
+  alt: string;
+  description: string;
 };
 
 export const favorites: Favorite[] = [
   {
-    name: "Bacon Burger",
-    price: "$17.50",
-    tag: "½ lb. Angus Burger",
-    icon: Beef,
-    theme: "red",
+    src: "/carousel/dish-01.webp",
+    alt: "Burger topped with melted cheese, lettuce, and tomato, served with loaded cheese-and-bacon tots",
+    description:
+      "A juicy burger stacked with melted cheese, crisp lettuce, and fresh tomato, plated with golden tots smothered in warm cheese sauce and crumbled bacon.",
   },
   {
-    name: "Baller's Hangover Burger",
-    price: "$17.95",
-    tag: "½ lb. Angus Burger",
-    icon: Beef,
-    theme: "split",
+    src: "/carousel/dish-02.png",
+    alt: "Basket of buffalo wings with celery, carrots, ranch, and a beer",
+    description:
+      "Crispy wings tossed in a glossy buffalo sauce, served with cool ranch, crunchy celery, and carrots — a game day classic best paired with a cold pour.",
   },
   {
-    name: "Jumbo Wings",
-    price: "$13.99",
-    tag: "10 Wings",
-    icon: Drumstick,
-    theme: "navy",
+    src: "/carousel/dish-03.webp",
+    alt: "Glazed shrimp topped with scallions on a white plate",
+    description:
+      "Golden shrimp glazed in a bold orange sauce and finished with fresh scallions, plated for easy sharing at the bar.",
   },
   {
-    name: "Buffalo Chicken Sandwich",
-    price: "$14.99",
-    tag: "Sandwich",
-    icon: Sandwich,
-    theme: "red",
+    src: "/carousel/dish-04.webp",
+    alt: "Bacon cheeseburger with lettuce and tomato, served with tater tots",
+    description:
+      "A hearty burger layered with melted cheese, crispy bacon, and fresh lettuce and tomato, served in-basket alongside golden tater tots.",
   },
   {
-    name: "Southwest Egg Rolls",
-    price: "$12.99",
-    tag: "Appetizer",
-    icon: Soup,
-    theme: "navy",
+    src: "/carousel/dish-05.png",
+    alt: "Steak wrap sliced in half, served with tater tots",
+    description:
+      "A generously packed wrap with tender sliced steak and fresh vegetables, sliced in half and served with crispy golden tots.",
   },
   {
-    name: "Dynamite Shrimp",
-    price: "$13.99",
-    tag: "Appetizer",
-    icon: Shrimp,
-    theme: "split",
+    src: "/carousel/dish-06.png",
+    alt: "Flatbread pizza topped with melted cheese and mushrooms",
+    description:
+      "A crispy flatbread topped with melted, bubbly cheese and sautéed mushrooms, baked to a golden finish.",
   },
   {
-    name: "Chicken Bacon Ranch Flatbread",
-    price: "$14.75",
-    tag: "Flatbread Pizza",
-    icon: Pizza,
-    theme: "navy",
+    src: "/carousel/dish-07.webp",
+    alt: "Grilled sandwich with melted cheese, lettuce, and tomato, served with onion rings",
+    description:
+      "A grilled sandwich packed with melted cheese, served alongside crisp golden onion rings, fresh lettuce and tomato, and a creamy dipping sauce.",
   },
   {
-    name: "Berry Salad",
-    price: "$14.99",
-    tag: "Salad",
-    icon: Salad,
-    theme: "red",
+    src: "/carousel/dish-08.png",
+    alt: "Glazed shrimp topped with scallions on a white plate",
+    description:
+      "Tender shrimp glazed in a rich orange sauce and topped with fresh scallions for a bold, flavorful bite.",
+  },
+  {
+    src: "/carousel/dish-09.png",
+    alt: "Close-up of a cheeseburger on a toasted brioche bun",
+    description:
+      "A juicy burger on a toasted brioche bun with melted cheese and a hint of sauce, served alongside golden fries.",
+  },
+  {
+    src: "/carousel/dish-10.png",
+    alt: "Fried fish fillets with tater tots, coleslaw, and dipping sauce",
+    description:
+      "Crispy, golden-battered fish fillets served with crunchy tater tots, cool coleslaw, and a creamy dipping sauce with a fresh lemon wedge.",
   },
 ];
