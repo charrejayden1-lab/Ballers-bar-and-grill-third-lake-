@@ -6,16 +6,25 @@ import { CoverflowCarousel } from "@/components/coverflow-carousel";
 
 export function FavoritesSection() {
   return (
-    <section className="bg-white py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+    <section className="relative overflow-hidden bg-navy-950 py-20 sm:py-28">
+      <div
+        className="pointer-events-none absolute left-1/2 top-[58%] h-[560px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-600/25 blur-[150px]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-red-500/15 blur-[130px]"
+        aria-hidden
+      />
+
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-red-600">
+          <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-red-400">
             From the Kitchen
           </p>
-          <h2 className="text-balance mt-3 font-display text-3xl font-bold uppercase tracking-tight text-navy-900 sm:text-5xl">
+          <h2 className="text-balance mt-3 font-display text-3xl font-bold uppercase tracking-tight text-white sm:text-5xl">
             Game Day Favorites
           </h2>
-          <p className="mt-4 text-balance text-ink-500">
+          <p className="mt-4 text-balance text-white/65">
             Swipe, drag, or click through a taste of what&rsquo;s cooking.
             Every dish below is on our full menu.
           </p>
